@@ -1,0 +1,7 @@
+[Default Applications]
+x-scheme-handler/http=firedragon.desktop;
+x-scheme-handler/https=firedragon.desktop;
+application/x-ms-dos-executable=wine.desktop
+application/x-msdownload=wine.desktop
+application/x-msi=wine.desktop
+application/x-bat=wine.desktop

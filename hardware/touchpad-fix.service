@@ -1,0 +1,10 @@
+[Unit]
+Description=Reset Lenovo ELAN06FA Touchpad on Boot
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "echo -n 'i2c-ELAN06FA:00' > /sys/bus/i2c/drivers/i2c_hid_acpi/unbind 2>/dev/null; sleep 1; echo -n 'i2c-ELAN06FA:00' > /sys/bus/i2c/drivers/i2c_hid_acpi/bind 2>/dev/null"
+
+[Install]
+WantedBy=multi-user.target

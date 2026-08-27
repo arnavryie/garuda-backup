@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=libinput-gestures-setup start
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Libinput Gestures
+Name=Libinput Gestures
+Comment[en_US]=Touchpad multi-finger gesture recognizer
+Comment=Touchpad multi-finger gesture recognizer
