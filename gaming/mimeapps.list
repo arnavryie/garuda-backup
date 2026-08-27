@@ -1,7 +1,11 @@
 [Default Applications]
-x-scheme-handler/http=firedragon.desktop;
-x-scheme-handler/https=firedragon.desktop;
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
 application/x-ms-dos-executable=wine.desktop
 application/x-msdownload=wine.desktop
 application/x-msi=wine.desktop
 application/x-bat=wine.desktop
+text/html=microsoft-edge.desktop
+text/xml=microsoft-edge.desktop
+application/xhtml+xml=microsoft-edge.desktop
+application/xml=microsoft-edge.desktop
