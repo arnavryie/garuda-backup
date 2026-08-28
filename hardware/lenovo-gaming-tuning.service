@@ -1,11 +1,12 @@
 [Unit]
-Description=Lenovo LOQ & RTX 4060 Power & Smooth Gaming Optimizer
+Description=Lenovo LOQ Hardware Thermal Limiter (CPU 88C / GPU 78C) & Power Optimizer
 After=multi-user.target
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
-ExecStart=/bin/bash -c "nvidia-smi -pm 1 2>/dev/null; for g in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do echo balance_performance > \$g 2>/dev/null; done"
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/lenovo-thermal-daemon.sh
 
 [Install]
 WantedBy=multi-user.target
