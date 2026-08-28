@@ -99,6 +99,11 @@ apply_profile() {
             # 4. Remove all GPU clock caps -> Full 115W TGP stock boost!
             nvidia-smi -pm 1 >/dev/null 2>&1 || true
             nvidia-smi -rgc >/dev/null 2>&1 || true
+
+            # 5. Keep fans limited to Quiet Mode levels (whisper quiet)
+            if [ -f /usr/share/legion_linux/quiet-ac.yaml ]; then
+                legion_cli --donotexpecthwmon fancurve-write-file-to-hw /usr/share/legion_linux/quiet-ac.yaml >/dev/null 2>&1 || true
+            fi
             ;;
 
         custom)
