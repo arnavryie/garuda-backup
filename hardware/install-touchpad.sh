@@ -31,9 +31,9 @@ echo "legion-laptop" > /etc/modules-load.d/legion-laptop.conf
 modprobe legion-laptop 2>/dev/null || true
 systemctl enable --now legiond.service 2>/dev/null || true
 
-echo "==> [3/3] Installing Thermal Limiter Daemon & Power Optimizer (CPU <= 88°C, GPU <= 78°C)..."
-cp "$SCRIPT_DIR/lenovo-thermal-daemon.sh" /usr/local/bin/lenovo-thermal-daemon.sh
-chmod +x /usr/local/bin/lenovo-thermal-daemon.sh
+echo "==> [3/3] Installing Dynamic Profile & Hardware Thermal Manager (Blue/White/Red/Purple)..."
+cp "$SCRIPT_DIR/lenovo-profile-manager.sh" /usr/local/bin/lenovo-profile-manager.sh
+chmod +x /usr/local/bin/lenovo-profile-manager.sh
 cp "$SCRIPT_DIR/lenovo-gaming-tuning.service" /etc/systemd/system/lenovo-gaming-tuning.service
 chmod 644 /etc/systemd/system/lenovo-gaming-tuning.service
 systemctl daemon-reload

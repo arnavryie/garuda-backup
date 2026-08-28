@@ -1,12 +1,12 @@
 [Unit]
-Description=Lenovo LOQ Hardware Thermal Limiter (CPU 88C / GPU 78C) & Power Optimizer
+Description=Lenovo LOQ Dynamic Profile & Hardware Thermal Manager (Blue/White/Red/Purple)
 After=multi-user.target
 
 [Service]
 Type=simple
 Restart=always
-RestartSec=5
-ExecStart=/usr/local/bin/lenovo-thermal-daemon.sh
+RestartSec=3
+ExecStart=/usr/local/bin/lenovo-profile-manager.sh
 
 [Install]
 WantedBy=multi-user.target
