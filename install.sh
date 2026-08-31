@@ -2,6 +2,7 @@
 # ==============================================================================
 # Garuda Linux + Lenovo LOQ Master Setup & Recovery Script
 # Author: arnavryie
+# GitHub: https://github.com/arnavryie/garuda-backup
 # ==============================================================================
 
 set -e
@@ -34,7 +35,7 @@ check_sudo() {
 }
 
 install_storage() {
-    echo -e "\n${CYAN}[1/4] Configuring Secondary Storage SSD & Dolphin...${NC}"
+    echo -e "\n${CYAN}[1/5] Configuring Secondary Storage SSD & Dolphin...${NC}"
     check_sudo
     sudo bash "$REPO_DIR/storage/setup-storage.sh"
     bash "$REPO_DIR/storage/install-dolphin.sh"
@@ -42,22 +43,27 @@ install_storage() {
 }
 
 install_hardware() {
-    echo -e "\n${CYAN}[2/4] Installing Lenovo LOQ Hardware & Touchpad Fixes...${NC}"
+    echo -e "\n${CYAN}[2/5] Installing Lenovo LOQ Hardware, Legion Drivers & Power Daemon...${NC}"
     check_sudo
     sudo bash "$REPO_DIR/hardware/install-touchpad.sh"
-    echo -e "${GREEN}[✓] Hardware & Touchpad fixes applied!${NC}"
+    echo -e "${GREEN}[✓] Hardware, Touchpad & Power fixes applied!${NC}"
 }
 
 install_gaming() {
-    echo -e "\n${CYAN}[3/4] Configuring Steam, Wine & DirectX 12 / DXVK Gaming...${NC}"
+    echo -e "\n${CYAN}[3/5] Configuring Steam, Wine & DirectX 12 / DXVK Gaming...${NC}"
     check_sudo
     bash "$REPO_DIR/gaming/setup-wine-gaming.sh"
-    sudo cp "$REPO_DIR/gaming/environment" /etc/environment 2>/dev/null || true
     echo -e "${GREEN}[✓] Gaming, Steam & Wine DX12 setup complete!${NC}"
 }
 
+install_desktop() {
+    echo -e "\n${CYAN}[4/5] Applying KDE Window Tweaks & Edge Flags...${NC}"
+    bash "$REPO_DIR/desktop/kwin-focus-tweaks.sh"
+    echo -e "${GREEN}[✓] Desktop and Browser optimizations applied!${NC}"
+}
+
 install_gestures() {
-    echo -e "\n${CYAN}[4/4] Setting Up Touchpad Gestures...${NC}"
+    echo -e "\n${CYAN}[5/5] Setting Up Touchpad Gestures...${NC}"
     mkdir -p "$HOME/.config/autostart"
     cp "$REPO_DIR/gestures/libinput-gestures.desktop" "$HOME/.config/autostart/" 2>/dev/null || true
     systemctl --user restart libinput-gestures 2>/dev/null || true
@@ -68,6 +74,7 @@ run_full_setup() {
     install_storage
     install_hardware
     install_gaming
+    install_desktop
     install_gestures
     echo -e "\n${GREEN}${BOLD}==================================================================${NC}"
     echo -e "${GREEN}${BOLD} [SUCCESS] All tweaks & configurations have been installed!      ${NC}"
@@ -79,19 +86,21 @@ print_header
 echo -e "${BOLD}Select an option:${NC}"
 echo -e " ${GREEN}[1]${NC} 🚀 ${BOLD}Full Automated Setup (Recommended on fresh install)${NC}"
 echo -e " ${CYAN}[2]${NC} 💽 Configure Storage SSD & Dolphin Shortcuts"
-echo -e " ${CYAN}[3]${NC} 💻 Install Lenovo Touchpad Fix (ELAN06FA i2c-hid)"
+echo -e " ${CYAN}[3]${NC} 💻 Install Lenovo Touchpad, Drivers & Power Tuning"
 echo -e " ${CYAN}[4]${NC} 🎮 Setup Steam Wayland Fix & Wine DX12 / DXVK"
-echo -e " ${CYAN}[5]${NC} 🖱️ Setup Touchpad Gestures"
+echo -e " ${CYAN}[5]${NC} 🖥️ Setup Desktop Window Popups & Edge Flags"
+echo -e " ${CYAN}[6]${NC} 🖱️ Setup Touchpad Gestures"
 echo -e " ${RED}[0]${NC} Exit"
 echo ""
-read -rp "Enter choice [1-5, or 0]: " choice
+read -rp "Enter choice [1-6, or 0]: " choice
 
 case "$choice" in
     1) run_full_setup ;;
     2) install_storage ;;
     3) install_hardware ;;
     4) install_gaming ;;
-    5) install_gestures ;;
+    5) install_desktop ;;
+    6) install_gestures ;;
     0) echo "Exiting..."; exit 0 ;;
     *) echo -e "${RED}Invalid option.${NC}"; exit 1 ;;
 esac
