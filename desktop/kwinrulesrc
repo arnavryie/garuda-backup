@@ -1,0 +1,14 @@
+[General]
+count=1
+rules=1
+
+[1]
+Description=Keep Picture-in-Picture Always on Top
+above=true
+aboverule=2
+title=Picture.*in.*picture|Picture-in-Picture|Picture in picture
+titlematch=3
+types=1
+wmclass=microsoft-edge|microsoft-edge-stable|msedge|chromium|google-chrome|firefox|brave-browser
+wmclasscomplete=false
+wmclassmatch=3
