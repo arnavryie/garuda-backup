@@ -28,23 +28,37 @@ apply_profile() {
 
     case "$mode" in
         low-power)
-            # 🔵 BLUE MODE (Quiet / Stock Lenovo)
-            # 1. Reset CPU Temperature cap to stock default (TCC offset = 3 -> 97°C/100°C)
+            # 🔵 BLUE MODE (Quiet / Low Power)
+            # 1. Reset CPU Temperature cap to stock default
             if [ -w /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius ]; then
                 echo 3 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true
             fi
 
-            # 2. Reset GPU clock limits to stock VBIOS
-            nvidia-smi -rgc >/dev/null 2>&1 || true
-
             if [ "$ac" -eq 1 ]; then
-                # On Charger: Hybrid mode, smooth EPP
+                # On Charger: Turbo enabled, smooth EPP, stock quiet limits
+                echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
+                if [ -w /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw ]; then
+                    echo 35000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
+                fi
+                if [ -w /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw ]; then
+                    echo 45000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
+                fi
                 nvidia-smi -pm 1 >/dev/null 2>&1 || true
+                nvidia-smi -rgc >/dev/null 2>&1 || true
                 for g in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
                     echo balance_performance > "$g" 2>/dev/null || true
                 done
             else
-                # On Battery: iGPU priority, power saving
+                # On Battery: Ultra-Cool ~45°C Cap (Disable Turbo + 15W PL1 + Min GPU Clock + EPP power)
+                echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
+                if [ -w /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw ]; then
+                    echo 15000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
+                fi
+                if [ -w /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw ]; then
+                    echo 20000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
+                fi
+                # Cap GPU clock if woken up so it cannot exceed 45°C
+                nvidia-smi -lgc 210,1050 >/dev/null 2>&1 || true
                 for g in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
                     echo power > "$g" 2>/dev/null || true
                 done
@@ -53,6 +67,8 @@ apply_profile() {
 
         balanced)
             # ⚪ WHITE MODE (Custom Gaming Mode: 55W/80W CPU @ 87°C | 90W GPU @ 78°C)
+            echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
+
             # 1. Enforce CPU Temperature Limit = 87°C (100°C - 13°C = 87°C)
             if [ -w /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius ]; then
                 echo 13 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true
@@ -78,6 +94,8 @@ apply_profile() {
 
         performance)
             # 🔴 RED MODE (100% Stock Lenovo Factory Performance)
+            echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
+
             # 1. Remove CPU Temperature cap (TCC offset = 0 -> full 100°C)
             if [ -w /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius ]; then
                 echo 0 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true
