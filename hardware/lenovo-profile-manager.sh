@@ -87,9 +87,9 @@ apply_profile() {
                 echo performance > "$g" 2>/dev/null || true
             done
 
-            # 4. GPU Tuning: Full 115W TGP Unlocked (Clocks freely boost to 2550MHz+ until 78°C cap)
+            # 4. GPU Tuning: High-efficiency 2175MHz curve (High FPS without thermal spike)
             nvidia-smi -pm 1 >/dev/null 2>&1 || true
-            nvidia-smi -rgc >/dev/null 2>&1 || true
+            nvidia-smi -lgc 210,2175 >/dev/null 2>&1 || true
             ;;
 
         performance)
@@ -131,7 +131,7 @@ apply_profile() {
     esac
 }
 
-# Main event loop (checks every 2 seconds)
+# Main event loop (checks every 0.5s for instant thermal control)
 while true; do
     # Get current ACPI mode (low-power, balanced, performance, custom)
     CURRENT_MODE=$(cat /sys/firmware/acpi/platform_profile 2>/dev/null || echo "balanced")
@@ -146,17 +146,19 @@ while true; do
         LAST_AC="$CURRENT_AC"
     fi
 
-    # In Balanced / Gaming mode only: actively guard the 78°C GPU limit
+    # In Balanced / Gaming mode only: actively enforce the 78°C GPU limit with sub-second response
     if [ "$CURRENT_MODE" = "balanced" ]; then
         GPU_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits 2>/dev/null || echo "0")
         if [[ "$GPU_TEMP" =~ ^[0-9]+$ ]]; then
             if [ "$GPU_TEMP" -ge 78 ]; then
+                nvidia-smi -lgc 210,1860 >/dev/null 2>&1 || true
+            elif [ "$GPU_TEMP" -ge 76 ]; then
                 nvidia-smi -lgc 210,1950 >/dev/null 2>&1 || true
             elif [ "$GPU_TEMP" -le 74 ]; then
-                nvidia-smi -rgc >/dev/null 2>&1 || true
+                nvidia-smi -lgc 210,2175 >/dev/null 2>&1 || true
             fi
         fi
     fi
 
-    sleep 2
+    sleep 0.5
 done
