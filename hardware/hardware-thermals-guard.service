@@ -1,14 +1,14 @@
 [Unit]
-Description=Permanent CPU 87C and GPU 80C Thermal Guardians
+Description=Permanent CPU 87C and GPU 77C Thermal Guardians
 After=multi-user.target
 
 [Service]
 Type=oneshot
 # CPU Hardware Thermal Cap = 87°C (TCC Offset 13)
 ExecStart=/bin/sh -c "echo 13 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true"
-# GPU Power & Clock Cap for 80°C Target
+# GPU Power & Clock Cap for 77°C Target
 ExecStart=/usr/bin/nvidia-smi -pm 1
-ExecStart=/usr/bin/nvidia-smi -lgc 210,2175
+ExecStart=/usr/bin/nvidia-smi -lgc 210,2050
 RemainAfterExit=yes
 
 [Install]
