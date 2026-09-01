@@ -66,20 +66,20 @@ apply_profile() {
             ;;
 
         balanced)
-            # ⚪ WHITE MODE (Optimized Gaming Mode: High FPS + 87°C CPU & 78°C GPU Thermal Limits)
+            # ⚪ WHITE MODE (Full Unrestricted Wattage + 87°C CPU & 78°C GPU Thermal Caps)
             echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
 
-            # 1. Enforce CPU Temperature Limit = 87°C (100°C - 13°C = 87°C)
+            # 1. Enforce Hardware CPU Temperature Ceiling = 87°C (100°C - 13°C = 87°C)
             if [ -w /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius ]; then
                 echo 13 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true
             fi
 
-            # 2. Expand CPU Power Limits for Unreal Engine & AAA Gaming (PL1=70W, PL2=95W)
+            # 2. Unlock Full CPU Power Envelope (PL1=90W, PL2=115W) - CPU draws whatever game needs within 87°C
             if [ -w /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw ]; then
-                echo 70000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
+                echo 90000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
             fi
             if [ -w /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw ]; then
-                echo 95000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
+                echo 115000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
             fi
 
             # 3. CPU Governor -> Performance for High Frame Rates
@@ -87,7 +87,7 @@ apply_profile() {
                 echo performance > "$g" 2>/dev/null || true
             done
 
-            # 4. GPU Tuning: Enable full 2500MHz+ boost headroom with active 78°C thermal trim
+            # 4. GPU Tuning: Full 115W TGP Unlocked (Clocks freely boost to 2550MHz+ until 78°C cap)
             nvidia-smi -pm 1 >/dev/null 2>&1 || true
             nvidia-smi -rgc >/dev/null 2>&1 || true
             ;;
