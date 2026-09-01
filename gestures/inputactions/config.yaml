@@ -1,0 +1,80 @@
+device_rules:
+  - conditions: $touchpad
+    swipe:
+      angle_tolerance: 45
+
+touchpad:
+  gestures:
+    # 3-Finger Swipe UP -> Open Overview / Task View (Show all open apps)
+    - type: swipe
+      fingers: 3
+      direction: up
+      actions:
+        - on: begin
+          command: /home/ryie/.local/bin/gesture-swipe-up
+
+    # 3-Finger Swipe DOWN -> Context-aware:
+    #   - If in Overview -> Return to previous app
+    #   - If in App -> Go to Desktop (Home Screen)
+    - type: swipe
+      fingers: 3
+      direction: down
+      actions:
+        - on: begin
+          command: /home/ryie/.local/bin/gesture-swipe-down
+
+    # 3-Finger Swipe RIGHT -> Toggle directly to the NEXT app on the taskbar (Edge -> Antigravity -> Spotify...)
+    - type: swipe
+      fingers: 3
+      direction: right
+      actions:
+        - on: begin
+          command: /home/ryie/.local/bin/switch-taskbar-app next
+
+    # 3-Finger Swipe LEFT -> Toggle directly to the PREVIOUS app on the taskbar (...Spotify -> Antigravity -> Edge)
+    - type: swipe
+      fingers: 3
+      direction: left
+      actions:
+        - on: begin
+          command: /home/ryie/.local/bin/switch-taskbar-app prev
+
+    # 4-Finger Swipe RIGHT -> Switch to Desktop on Right
+    - type: swipe
+      fingers: 4
+      direction: right
+      actions:
+        - on: begin
+          plasma_shortcut: kwin,Switch One Desktop to the Right
+
+    # 4-Finger Swipe LEFT -> Switch to Desktop on Left
+    - type: swipe
+      fingers: 4
+      direction: left
+      actions:
+        - on: begin
+          plasma_shortcut: kwin,Switch One Desktop to the Left
+
+    # 4-Finger Tap -> Play / Pause Media
+    - type: tap
+      fingers: 4
+      actions:
+        - on: end
+          plasma_shortcut: mediacontrol,playpausemedia
+
+    # 4-Finger Swipe UP -> Maximize Window
+    - type: swipe
+      fingers: 4
+      direction: up
+      actions:
+        - on: begin
+          plasma_shortcut: kwin,Window Maximize
+
+    # 4-Finger Swipe DOWN -> Show Desktop
+    - type: swipe
+      fingers: 4
+      direction: down
+      actions:
+        - on: begin
+          plasma_shortcut: kwin,Show Desktop
+
