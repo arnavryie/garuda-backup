@@ -66,7 +66,7 @@ apply_profile() {
             ;;
 
         balanced)
-            # ⚪ WHITE MODE (Custom Gaming Mode: 55W/80W CPU @ 87°C | 90W GPU @ 78°C)
+            # ⚪ WHITE MODE (Optimized Gaming Mode: High FPS + 87°C CPU & 78°C GPU Thermal Limits)
             echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo 2>/dev/null || true
 
             # 1. Enforce CPU Temperature Limit = 87°C (100°C - 13°C = 87°C)
@@ -74,22 +74,22 @@ apply_profile() {
                 echo 13 > /sys/devices/pci0000:00/0000:00:04.0/tcc_offset_degree_celsius 2>/dev/null || true
             fi
 
-            # 2. Enforce CPU Power Limits: PL1 = 55W (55M uW), PL2 = 80W (80M uW)
+            # 2. Expand CPU Power Limits for Unreal Engine & AAA Gaming (PL1=70W, PL2=95W)
             if [ -w /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw ]; then
-                echo 55000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
+                echo 70000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw 2>/dev/null || true
             fi
             if [ -w /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw ]; then
-                echo 80000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
+                echo 95000000 > /sys/class/powercap/intel-rapl:0/constraint_1_power_limit_uw 2>/dev/null || true
             fi
 
-            # 3. CPU Governor
+            # 3. CPU Governor -> Performance for High Frame Rates
             for g in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
-                echo balance_performance > "$g" 2>/dev/null || true
+                echo performance > "$g" 2>/dev/null || true
             done
 
-            # 4. GPU Tuning: Lock to ~90W high-efficiency boost curve (1920 MHz) & ensure <= 78°C
+            # 4. GPU Tuning: Enable full 2500MHz+ boost headroom with active 78°C thermal trim
             nvidia-smi -pm 1 >/dev/null 2>&1 || true
-            nvidia-smi -lgc 210,1920 >/dev/null 2>&1 || true
+            nvidia-smi -rgc >/dev/null 2>&1 || true
             ;;
 
         performance)
@@ -151,9 +151,9 @@ while true; do
         GPU_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits 2>/dev/null || echo "0")
         if [[ "$GPU_TEMP" =~ ^[0-9]+$ ]]; then
             if [ "$GPU_TEMP" -ge 78 ]; then
-                nvidia-smi -lgc 210,1770 >/dev/null 2>&1 || true
+                nvidia-smi -lgc 210,1950 >/dev/null 2>&1 || true
             elif [ "$GPU_TEMP" -le 74 ]; then
-                nvidia-smi -lgc 210,1920 >/dev/null 2>&1 || true
+                nvidia-smi -rgc >/dev/null 2>&1 || true
             fi
         fi
     fi
