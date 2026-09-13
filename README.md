@@ -37,8 +37,14 @@ chmod +x install.sh storage/*.sh hardware/*.sh gaming/*.sh
 * **Steam Wayland / NVIDIA Crash Fix:** Overrides Steam's desktop launcher with `-cef-disable-gpu` and disables discrete GPU forcing for the UI, permanently stopping the **"Unexpected Transport Error"** loop.
 * **DirectX 11 & 12 in Wine:** Installs Valve's **VKD3D-Proton** and **DXVK** into `~/.wine` so modern DX12 games (*Ghost of Tsushima, Black Myth Wukong, etc.*) run out-of-the-box.
 * **Wine `D:\` Drive Letter:** Maps `D:\` directly to `/mnt/Storage`.
-* **Default `.exe` Association:** Opens `.exe`, `.msi`, `.bat` with Wine instead of Bottles.
 * **NVIDIA DLSS & NVAPI:** Injects `PROTON_ENABLE_NVAPI=1` and DXVK filter flags in `/etc/environment`.
+* **Persistent 100GB NVIDIA Shader Cache:** Configures `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1` and `100GB` cache limits in `/etc/environment`, `/etc/environment.d/`, and `/etc/profile.d/`, preventing the driver from deleting compiled DX12/Vulkan game shaders across reboots.
+* **Low-Latency & Anti-Bufferbloat Network Stack:** Enables Google `BBR` congestion control, `fq_codel` queuing on Wi-Fi, and disables Wi-Fi power-save sleep states (`wifi.powersave = 2`), dropping gaming latency and packet loss on mobile hotspots.
+* **Intel i7 CPU Performance Boot Service:** Persistent systemd service (`cpu-performance.service`) locking all 20 threads to maximum clock speeds right from boot.
+
+### 4. 🖥️ Desktop & Workspace Dots Plasmoid
+* **Workspace Dots (KDE Plasma 6 Fix):** Fixes the Hyprland-style workspace dots pager by integrating directly with native KWin DBus (`setCurrentDesktop`, `nextDesktop`, `previousDesktop`), restoring instant click and wheel desktop switching.
+* **KDE Window Management & Focus:** Disables focus-stealing prevention and forces Picture-in-Picture windows to stay on top.
 
 ---
 

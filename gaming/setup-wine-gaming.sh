@@ -26,9 +26,30 @@ xdg-mime default wine.desktop application/x-msdownload 2>/dev/null || true
 xdg-mime default wine.desktop application/x-msi 2>/dev/null || true
 xdg-mime default wine.desktop application/x-bat 2>/dev/null || true
 
-# Apply Steam Wayland Fix
-mkdir -p "$HOME/.local/share/applications"
-cp "$SCRIPT_DIR/steam.desktop" "$HOME/.local/share/applications/steam.desktop"
-update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+# Apply Persistent 100GB NVIDIA Shader Cache (Anti-wipe across reboots)
+if [ -f "$SCRIPT_DIR/environment" ]; then
+    sudo cp "$SCRIPT_DIR/environment" /etc/environment
+fi
+if [ -f "$SCRIPT_DIR/99-nvidia-shadercache.conf" ]; then
+    sudo mkdir -p /etc/environment.d
+    sudo cp "$SCRIPT_DIR/99-nvidia-shadercache.conf" /etc/environment.d/
+fi
+if [ -f "$SCRIPT_DIR/nvidia-shadercache.sh" ]; then
+    sudo cp "$SCRIPT_DIR/nvidia-shadercache.sh" /etc/profile.d/
+fi
+if [ -f "$SCRIPT_DIR/10-gaming-optimizations.conf" ]; then
+    mkdir -p "$HOME/.config/environment.d"
+    cp "$SCRIPT_DIR/10-gaming-optimizations.conf" "$HOME/.config/environment.d/"
+fi
 
-echo "==> Wine Gaming and Steam Wayland fixes successfully applied!"
+# Apply Gaming Low-Latency & Anti-Bufferbloat Network Stack
+if [ -f "$SCRIPT_DIR/99-gaming-network.conf" ]; then
+    sudo cp "$SCRIPT_DIR/99-gaming-network.conf" /etc/sysctl.d/
+    sudo sysctl -p /etc/sysctl.d/99-gaming-network.conf 2>/dev/null || true
+fi
+if [ -f "$SCRIPT_DIR/default-wifi-powersave-off.conf" ]; then
+    sudo mkdir -p /etc/NetworkManager/conf.d
+    sudo cp "$SCRIPT_DIR/default-wifi-powersave-off.conf" /etc/NetworkManager/conf.d/
+fi
+
+echo "==> Wine Gaming, Steam Wayland, 100GB Shader Cache & Low-Latency Network fixes successfully applied!"

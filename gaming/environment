@@ -1,3 +1,8 @@
-#
-# System environment variables parsed by pam_env
-#
+# /etc/environment
+# Global environment variables loaded by pam_env
+
+__GL_SHADER_DISK_CACHE=1
+__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+__GL_SHADER_DISK_CACHE_SIZE=107374182400
+__GL_SHADER_DISK_CACHE_PATH=/home/ryie/.cache/nvidia/GLCache
+DXVK_STATE_CACHE=1

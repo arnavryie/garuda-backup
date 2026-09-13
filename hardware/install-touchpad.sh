@@ -39,4 +39,12 @@ chmod 644 /etc/systemd/system/lenovo-gaming-tuning.service
 systemctl daemon-reload
 systemctl enable --now lenovo-gaming-tuning.service
 
-echo "==> Lenovo Hardware, Touchpad, and Power Optimization complete!"
+echo "==> [4/4] Installing CPU Performance Boot Service..."
+if [ -f "$SCRIPT_DIR/cpu-performance.service" ]; then
+    cp "$SCRIPT_DIR/cpu-performance.service" /etc/systemd/system/cpu-performance.service
+    chmod 644 /etc/systemd/system/cpu-performance.service
+    systemctl daemon-reload
+    systemctl enable --now cpu-performance.service
+fi
+
+echo "==> Lenovo Hardware, Touchpad, Power & CPU Performance Optimization complete!"

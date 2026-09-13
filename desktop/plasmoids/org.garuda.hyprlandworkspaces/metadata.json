@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Garuda Hyprland Workspace Dots"
+            }
+        ],
+        "Category": "Windows and Tasks",
+        "Description": "Hyprland-style workspace dots pager for KDE Plasma",
+        "Icon": "preferences-desktop-virtual-desktops",
+        "Id": "org.garuda.hyprlandworkspaces",
+        "Name": "Workspace Dots",
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

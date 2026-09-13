@@ -25,4 +25,11 @@ qdbus6 org.kde.KWin /KWin reconfigure 2>/dev/null || true
 cp "$SCRIPT_DIR/microsoft-edge-stable-flags.conf" "$HOME/.config/microsoft-edge-stable-flags.conf" 2>/dev/null || true
 cp "$SCRIPT_DIR/microsoft-edge-stable-flags.conf" "$HOME/.config/microsoft-edge-flags.conf" 2>/dev/null || true
 
-echo "==> KDE Window Pop-Up, Titlebar Buttons, PiP Always-on-Top & Edge flags applied!"
+# Install / update Workspace Dots plasmoid (Plasma 6 DBus desktop switcher)
+if [ -d "$SCRIPT_DIR/plasmoids/org.garuda.hyprlandworkspaces" ]; then
+    mkdir -p "$HOME/.local/share/plasma/plasmoids"
+    cp -r "$SCRIPT_DIR/plasmoids/org.garuda.hyprlandworkspaces" "$HOME/.local/share/plasma/plasmoids/"
+    echo "==> Workspace Dots (Desktop Switcher) plasmoid installed!"
+fi
+
+echo "==> KDE Window Pop-Up, Titlebar Buttons, PiP Always-on-Top, Workspace Dots & Edge flags applied!"
