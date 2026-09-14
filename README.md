@@ -44,6 +44,7 @@ chmod +x install.sh storage/*.sh hardware/*.sh gaming/*.sh
 
 ### 4. 🖥️ Desktop & Workspace Dots Plasmoid
 * **Workspace Dots (KDE Plasma 6 Fix):** Fixes the Hyprland-style workspace dots pager by integrating directly with native KWin DBus (`setCurrentDesktop`, `nextDesktop`, `previousDesktop`), restoring instant click and wheel desktop switching.
+* **Win + Q Quick App Quit & Hover Focus (Hyprland Style):** Binds `Win + Q` (`Meta + Q`) to close/quit applications and enables instant `FocusFollowsMouse` so hovering over any app window allows closing it immediately without needing to click it first.
 * **KDE Window Management & Focus:** Disables focus-stealing prevention and forces Picture-in-Picture windows to stay on top.
 
 ---
