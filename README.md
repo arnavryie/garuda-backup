@@ -47,6 +47,11 @@ chmod +x install.sh storage/*.sh hardware/*.sh gaming/*.sh
 * **Win + Q Quick App Quit & Hover Focus (Hyprland Style):** Binds `Win + Q` (`Meta + Q`) to close/quit applications and enables instant `FocusFollowsMouse` so hovering over any app window allows closing it immediately without needing to click it first.
 * **KDE Window Management & Focus:** Disables focus-stealing prevention and forces Picture-in-Picture windows to stay on top.
 
+### 5. 📱 Apple iPhone USB Tethering & Dolphin AFC Integration
+* **Apple Mobile Device Protocol (`usbmuxd`):** Configures and enables the `usbmuxd` socket daemon for native iPhone communication.
+* **USB Ethernet (`ipheth`):** Autoloads `ipheth` via `/etc/modules-load.d/ipheth.conf` for instant, zero-latency wired tethering when Personal Hotspot is active.
+* **Dolphin File & Photo Browsing (`ifuse` & `gvfs-afc`):** Installs Apple File Conduit backends so iPhones mount cleanly as removable storage devices in Dolphin.
+
 ---
 
 ## 🛠️ Manual Module Execution

@@ -46,7 +46,8 @@ install_hardware() {
     echo -e "\n${CYAN}[2/5] Installing Lenovo LOQ Hardware, Legion Drivers & Power Daemon...${NC}"
     check_sudo
     sudo bash "$REPO_DIR/hardware/install-touchpad.sh"
-    echo -e "${GREEN}[✓] Hardware, Touchpad & Power fixes applied!${NC}"
+    bash "$REPO_DIR/hardware/setup-apple-ios.sh"
+    echo -e "${GREEN}[✓] Hardware, Touchpad, Power & Apple iOS fixes applied!${NC}"
 }
 
 install_gaming() {
