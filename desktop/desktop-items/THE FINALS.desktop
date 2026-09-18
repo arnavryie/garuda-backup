@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=THE FINALS
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/2073850
+Icon=steam_icon_2073850
+Terminal=false
+Type=Application
+Categories=Game;

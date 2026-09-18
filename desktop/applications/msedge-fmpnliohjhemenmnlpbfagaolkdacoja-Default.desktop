@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Claude
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja --app-url=https://claude.ai/
+Icon=msedge-fmpnliohjhemenmnlpbfagaolkdacoja-Default
+StartupWMClass=crx__fmpnliohjhemenmnlpbfagaolkdacoja

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Gist
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=egjmiafbclkdaakgcdgejfbofpfaeojc --app-url=https://gist.github.com/
+Icon=msedge-egjmiafbclkdaakgcdgejfbofpfaeojc-Default
+StartupWMClass=crx__egjmiafbclkdaakgcdgejfbofpfaeojc

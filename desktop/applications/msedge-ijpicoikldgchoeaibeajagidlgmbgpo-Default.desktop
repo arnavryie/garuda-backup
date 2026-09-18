@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Perplexity
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=ijpicoikldgchoeaibeajagidlgmbgpo "--app-url=https://www.perplexity.ai/?login-source=oneTapHome&login-new=false"
+Icon=msedge-ijpicoikldgchoeaibeajagidlgmbgpo-Default
+StartupWMClass=crx__ijpicoikldgchoeaibeajagidlgmbgpo

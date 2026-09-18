@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Life OS Executive Desktop
+Comment=J.A.R.V.I.S. Life OS Native Desktop Controller
+Exec=/usr/bin/python3 /home/ryie/Documents/Projects/life-os/widgets/life_os_desktop.py
+Icon=/home/ryie/.local/share/icons/life-os.png
+Terminal=false
+Type=Application
+Categories=Utility;Office;Dashboard;
+StartupNotify=false

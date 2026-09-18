@@ -1,0 +1,3 @@
+com.abisource.AbiWord
+io.github.brunofin.Cohesion
+md.obsidian.Obsidian

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Search Internships, Jobs, & Courses | Hire Candidates | Internshala
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=jdfohljedndkhonaoedldmfdlnlmciei --app-url=https://internshala.com/student/dashboard
+Icon=msedge-jdfohljedndkhonaoedldmfdlnlmciei-Default
+StartupWMClass=crx__jdfohljedndkhonaoedldmfdlnlmciei

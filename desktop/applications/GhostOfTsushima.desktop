@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Ghost of Tsushima DIRECTOR'S CUT
+Comment=Play Ghost of Tsushima
+Exec=prime-run env WINEPREFIX="/home/ryie/.wine" VKD3D_CONFIG=dxr11,dxr PROTON_ENABLE_NVAPI=1 wine "/mnt/Storage/Games/GhostOfTsushima.exe"
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/Games
+Icon=201E_GhostOfTsushima.0
+StartupWMClass=ghostoftsushima.exe
+Categories=Game;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Play 007 First Light
+Exec=env "WINEPREFIX=/home/ryie/.wine" wine "C:\\\\users\\\\Public\\\\Desktop\\\\Play 007 First Light.lnk"
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/007 First Light/Retail
+Icon=5FF6_007FirstLight.0
+StartupWMClass=007firstlight.exe

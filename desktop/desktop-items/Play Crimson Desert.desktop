@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Play Crimson Desert
+Exec=gamemoderun taskset -c 0-11 prime-run env "WINEPREFIX=/home/ryie/.wine" wine "C:\\\\users\\\\Public\\\\Desktop\\\\Play Crimson Desert.lnk"
+Type=Application
+StartupNotify=true
+Path=/home/ryie/Games/Crimson Desert/bin64
+StartupWMClass=steamclient_loader_x64.exe

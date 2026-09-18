@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Google Play Books
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=hdcbiajfnegmhbacdkdjbeboifmnkjfg --app-url=https://play.google.com/books
+Icon=msedge-hdcbiajfnegmhbacdkdjbeboifmnkjfg-Default
+StartupWMClass=crx__hdcbiajfnegmhbacdkdjbeboifmnkjfg

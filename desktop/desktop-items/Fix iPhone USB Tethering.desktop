@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Fix iPhone USB Tethering
+GenericName=Install iPhone Tethering Drivers
+Comment=Installs usbmuxd and enables iPhone USB wired hotspot
+Exec=/home/ryie/.local/bin/setup-iphone-tethering.sh
+Icon=phone
+Terminal=true
+Categories=System;Network;
+StartupNotify=true

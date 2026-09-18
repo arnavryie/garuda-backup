@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Siri Voice Dictator
+GenericName=Clipboard Text-To-Speech Dictator
+Comment=Automatically dictates copied text over 100 words in Siri voice
+Exec=/home/ryie/.local/share/clipboard-dictator/toggle.sh
+Icon=audio-speakers
+Terminal=false
+Categories=Utility;AudioVideo;Audio;
+StartupNotify=true

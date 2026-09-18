@@ -1,0 +1,9 @@
+antigravity-ide
+inputactions-ctl
+inputactions-kwin
+lib32-fluidsynth
+lib32-libxslt
+lib32-mpg123
+lib32-portaudio
+lib32-sdl2-compat
+plasma6-applets-thermal-monitor-git

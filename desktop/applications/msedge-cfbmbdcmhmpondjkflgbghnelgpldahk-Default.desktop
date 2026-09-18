@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Kimi AI with K2.6 | Better Coding, Smarter Agents
+MimeType=application/epub+zip;application/json;application/msword;application/pdf;application/vnd.ms-excel;application/vnd.ms-powerpoint;application/vnd.openxmlformats-officedocument.presentationml.presentation;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/x-mobipocket-ebook;audio/*;image/*;text/*;text/csv;text/markdown;text/plain;video/*;x-scheme-handler/web+kimi;x-scheme-handler/microsoft-edge;
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=cfbmbdcmhmpondjkflgbghnelgpldahk --app-url=https://www.kimi.com/ %U
+Icon=msedge-cfbmbdcmhmpondjkflgbghnelgpldahk-Default
+StartupWMClass=crx__cfbmbdcmhmpondjkflgbghnelgpldahk

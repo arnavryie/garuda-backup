@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Clicky
+GenericName=AI Companion & Tutor
+Comment=AI visual tutor that lives next to your cursor
+Exec=/home/ryie/Documents/clicky-windows/run.sh
+Icon=/home/ryie/Documents/clicky-windows/assets/icon.png
+Terminal=false
+Categories=Utility;Education;Development;
+Keywords=ai;companion;tutor;assistant;clicky;
+StartupNotify=true

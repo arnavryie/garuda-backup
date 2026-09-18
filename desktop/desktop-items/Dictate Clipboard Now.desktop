@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dictate Clipboard Now
+GenericName=Speak Clipboard Text
+Comment=Instantly reads the current clipboard text in Siri voice
+Exec=/home/ryie/.local/share/clipboard-dictator/dictate-now.sh
+Icon=audio-volume-high
+Terminal=false
+Categories=Utility;AudioVideo;Audio;
+StartupNotify=true

@@ -1,0 +1,37 @@
+[General]
+count=2
+rules=1,2
+
+[1]
+Description=Keep Picture-in-Picture Always on Top
+above=true
+aboverule=2
+title=Picture.*in.*picture|Picture-in-Picture|Picture in picture
+titlematch=3
+types=1
+wmclass=microsoft-edge|microsoft-edge-stable|msedge|chromium|google-chrome|firefox|brave-browser
+wmclasscomplete=false
+wmclassmatch=3
+
+[2]
+Description=Life OS Desktop Permanent Pinned Widget
+noborder=true
+noborderrule=2
+keepbelow=true
+keepbelowrule=2
+skiptaskbar=true
+skiptaskbarrule=2
+skippager=true
+skippagerrule=2
+wmclass=python3|life-os|lifeosdesktop
+wmclasscomplete=false
+wmclassmatch=3
+below=true
+belowrule=2
+title=LifeOSDesktop
+titlematch=1
+position=980,28
+positionrule=2
+size=940,1052
+sizerule=2
+

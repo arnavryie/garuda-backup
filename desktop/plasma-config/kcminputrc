@@ -1,0 +1,22 @@
+[Keyboard]
+KeyRepeat=repeat
+NumLock=0
+RepeatDelay=250
+RepeatRate=25
+
+[Libinput][1165][51606][ITE Tech. Inc. ITE Device(8176) Keyboard]
+ScrollFactor=1
+
+[Libinput][1267][12926][ELAN06FA:00 04F3:327E Touchpad]
+ClickMethod=2
+DisableWhileTyping=true
+Enabled=true
+LrmTapButtonMap=true
+MiddleClickEmulation=true
+NaturalScroll=true
+PointerAcceleration=0.090
+PointerAccelerationProfile=2
+ScrollFactor=0.3
+ScrollMethod=1
+TapAndDrag=true
+TapToClick=true

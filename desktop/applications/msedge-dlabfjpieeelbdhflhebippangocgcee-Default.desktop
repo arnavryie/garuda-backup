@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Upwork | Hire Top Freelance Talent with Confidence
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=dlabfjpieeelbdhflhebippangocgcee --app-url=https://www.upwork.com/
+Icon=msedge-dlabfjpieeelbdhflhebippangocgcee-Default
+StartupWMClass=crx__dlabfjpieeelbdhflhebippangocgcee

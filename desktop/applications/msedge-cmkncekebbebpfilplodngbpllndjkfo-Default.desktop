@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Chrome Remote Desktop
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=cmkncekebbebpfilplodngbpllndjkfo "--app-url=https://remotedesktop.google.com/?entry-point=pwa&lfhs=2"
+Icon=msedge-cmkncekebbebpfilplodngbpllndjkfo-Default
+StartupWMClass=crx__cmkncekebbebpfilplodngbpllndjkfo

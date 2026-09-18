@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Google Classroom
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=kjcjfjccmpngedeildfijeanhihmolck "--app-url=https://classroom.google.com/?lfhs=2"
+Icon=msedge-kjcjfjccmpngedeildfijeanhihmolck-Default
+StartupWMClass=crx__kjcjfjccmpngedeildfijeanhihmolck

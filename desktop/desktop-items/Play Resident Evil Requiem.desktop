@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Resident Evil Requiem
+Comment=Play Resident Evil Requiem
+Exec=gamemoderun taskset -c 0-11 prime-run env WINEPREFIX="/home/ryie/.wine" VKD3D_CONFIG=dxr11,dxr PROTON_ENABLE_NVAPI=1 wine "/mnt/Storage/requem/Resident Evil Requiem/re9.exe"
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/requem/Resident Evil Requiem
+Icon=applications-games
+StartupWMClass=re9.exe
+Categories=Game;

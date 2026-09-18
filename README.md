@@ -57,6 +57,18 @@ chmod +x install.sh storage/*.sh hardware/*.sh gaming/*.sh
 * **Dynamic Hardware & Power Management (`udev`):** Instant udev kernel hooks monitor AC charger connect/disconnect and Fifine USB hotplug events.
 * **Zero Battery Drain Guarantee:** When operating on battery power OR when the Fifine microphone is disconnected, the service completely unloads NoiseTorch from PipeWire (0% CPU, 0 MB RAM, no background audio filtering loop). When plugged into AC power with the Fifine mic connected, it automatically restores the 95% threshold noise suppressor and sets it as the system's default source.
 
+### 7. 🎨 Plasma Theme, Pinned Apps, Life OS & Thermal Sensors
+* **Exact Desktop Theme & Layout:** Restores the `Scratchy` dark theme, color schemes, Aurorae window decorations, and exact panel heights/geometries.
+* **Taskbar & Pinned Applications:** Instantly restores all 50 pinned apps and Edge PWAs (*ChatGPT, Claude, LeetCode, Upwork, WhatsApp, Telegram, Fiverr, YouTube Music, Obsidian, Antigravity IDE, Steam, ZapZap, etc.*) complete with high-resolution icons.
+* **Life OS HUD & Workspace Dots:** Reinstalls custom plasmoids including **Life OS (J.A.R.V.I.S. Core 4.2)** and the Hyprland workspace dots pager.
+* **Top Status Bar & Thermal Sensors:** Reconfigures CPU/GPU thermal monitors (`org.kde.olib.thermalmonitor`), memory meters, and system sensors on the top panel.
+
+### 8. 💾 Dual-Tier Master Backup Architecture
+* **Tier 1 (Cloud / GitHub Repository):** Houses all dotfiles, Plasma configurations, theme assets, custom plasmoids, `.desktop` launchers, package manifests, and installation scripts.
+* **Tier 2 (Offline / Secondary NVMe SSD `/mnt/Storage/Garuda-Full-Backup`):** Automatically backs up all game saves (*Assassin's Creed Shadows & Black Flag, Ghost of Tsushima, Spider-Man, Wine Roaming/Local saves*), Steam userdata, personal documents, books, Obsidian vault, and the full 1.6GB icon packs. Survives laptop resets and OS wipes completely intact!
+* **1-Click Backup:** Run `./backup-all.sh` anytime to take a complete live snapshot.
+* **1-Click Restore:** Run `./restore-all.sh` to reincarnate your complete system.
+
 ---
 
 ## 🛠️ Manual Module Execution

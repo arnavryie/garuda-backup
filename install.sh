@@ -59,9 +59,10 @@ install_gaming() {
 }
 
 install_desktop() {
-    echo -e "\n${CYAN}[4/5] Applying KDE Window Tweaks & Edge Flags...${NC}"
+    echo -e "\n${CYAN}[4/5] Applying KDE Window Tweaks, Theme, Taskbars & Edge Flags...${NC}"
     bash "$REPO_DIR/desktop/kwin-focus-tweaks.sh"
-    echo -e "${GREEN}[✓] Desktop and Browser optimizations applied!${NC}"
+    bash "$REPO_DIR/desktop/restore-desktop-theme.sh"
+    echo -e "${GREEN}[✓] Desktop, Theme, Taskbars & Browser optimizations applied!${NC}"
 }
 
 install_gestures() {
@@ -86,23 +87,28 @@ run_full_setup() {
 # Menu
 print_header
 echo -e "${BOLD}Select an option:${NC}"
-echo -e " ${GREEN}[1]${NC} 🚀 ${BOLD}Full Automated Setup (Recommended on fresh install)${NC}"
-echo -e " ${CYAN}[2]${NC} 💽 Configure Storage SSD & Dolphin Shortcuts"
-echo -e " ${CYAN}[3]${NC} 💻 Install Lenovo Touchpad, Drivers & Power Tuning"
-echo -e " ${CYAN}[4]${NC} 🎮 Setup Steam Wayland Fix & Wine DX12 / DXVK"
-echo -e " ${CYAN}[5]${NC} 🖥️ Setup Desktop Window Popups & Edge Flags"
-echo -e " ${CYAN}[6]${NC} 🖱️ Setup Touchpad Gestures"
+echo -e " ${GREEN}[1]${NC} 🚀 ${BOLD}Full Automated Setup & Reincarnation (Recommended on fresh install)${NC}"
+echo -e " ${CYAN}[2]${NC} 🎨 Restore Plasma Theme, Taskbar, Pinned Apps & Life OS Widget"
+echo -e " ${CYAN}[3]${NC} 💾 Restore Game Saves, Documents & Icons from Secondary SSD"
+echo -e " ${CYAN}[4]${NC} 💽 Configure Storage SSD & Dolphin Shortcuts"
+echo -e " ${CYAN}[5]${NC} 💻 Install Lenovo Touchpad, Drivers, NoiseTorch & Power Tuning"
+echo -e " ${CYAN}[6]${NC} 🎮 Setup Steam Wayland Fix & Wine DX12 / DXVK"
+echo -e " ${CYAN}[7]${NC} 🖱️ Setup Touchpad Gestures"
+echo -e " ${YELLOW}[8]${NC} 🔄 ${BOLD}Create Full Backup Snapshot Now (Git + Secondary SSD)${NC}"
 echo -e " ${RED}[0]${NC} Exit"
 echo ""
-read -rp "Enter choice [1-6, or 0]: " choice
+read -rp "Enter choice [1-8, or 0]: " choice
 
 case "$choice" in
-    1) run_full_setup ;;
-    2) install_storage ;;
-    3) install_hardware ;;
-    4) install_gaming ;;
-    5) install_desktop ;;
-    6) install_gestures ;;
+    1) bash "$REPO_DIR/restore-all.sh" ;;
+    2) bash "$REPO_DIR/desktop/restore-desktop-theme.sh" ;;
+    3) bash "$REPO_DIR/storage/restore-from-storage.sh" ;;
+    4) install_storage ;;
+    5) install_hardware ;;
+    6) install_gaming ;;
+    7) install_gestures ;;
+    8) bash "$REPO_DIR/backup-all.sh" ;;
     0) echo "Exiting..."; exit 0 ;;
     *) echo -e "${RED}Invalid option.${NC}"; exit 1 ;;
 esac
+

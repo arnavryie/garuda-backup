@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Wuchang: Fallen Feathers
+Comment=Play Wuchang: Fallen Feathers
+Exec=/home/ryie/.local/bin/launch-wuchang.sh
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/Wuchang Fallen Feathers/Project_Plague/Binaries/Win64
+Icon=A078_Project_Plague.0
+StartupWMClass=project_plague-win64-shipping.exe
+Categories=Game;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Play Marvels SpiderMan Remastered
+Exec=env "WINEPREFIX=/home/ryie/.wine" wine "C:\\\\users\\\\Public\\\\Desktop\\\\Play Marvels SpiderMan Remastered.lnk"
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/Marvels SpiderMan Remastered
+Icon=C75E_Spider-Man.0
+StartupWMClass=spider-man.exe

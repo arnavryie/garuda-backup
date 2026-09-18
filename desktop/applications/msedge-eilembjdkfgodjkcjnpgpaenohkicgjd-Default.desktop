@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Google Keep
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd "--app-url=https://keep.google.com/?usp=installed_webapp"
+Icon=msedge-eilembjdkfgodjkcjnpgpaenohkicgjd-Default
+StartupWMClass=crx__eilembjdkfgodjkcjnpgpaenohkicgjd

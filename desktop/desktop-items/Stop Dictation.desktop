@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Stop Dictation
+GenericName=Stop Speaking Audio
+Comment=Instantly stops any currently playing Siri voice dictation
+Exec=/home/ryie/.local/share/clipboard-dictator/stop.sh
+Icon=media-playback-stop
+Terminal=false
+Categories=Utility;AudioVideo;Audio;
+StartupNotify=false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=RemoteAccess;Network;
+Comment=Self-hosted game stream host for Moonlight
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sunshine.sh dev.lizardbyte.app.Sunshine
+Icon=dev.lizardbyte.app.Sunshine
+Keywords=gamestream;stream;moonlight;remote play;
+Name=Sunshine
+Type=Application
+Version=1.0
+X-Flatpak=dev.lizardbyte.app.Sunshine

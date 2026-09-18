@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Play Assassin Creed Shadows
+Exec=gamemoderun taskset -c 0-11 prime-run env "WINEPREFIX=/home/ryie/.wine" wine "C:\\\\users\\\\Public\\\\Desktop\\\\Play Assassin Creed Shadows.lnk"
+Type=Application
+StartupNotify=true
+Path=/mnt/Storage/Assassin Creed Shadows
+Icon=0F67_ACShadows.0
+StartupWMClass=acshadows.exe

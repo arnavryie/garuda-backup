@@ -1,0 +1,24 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "arnav@lifeos.local",
+                "Name": "Life OS"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "J.A.R.V.I.S. Life OS HUD with live tasks, pursuits, activity streaks, and command AI",
+        "EnabledByDefault": true,
+        "Icon": "utilities-terminal",
+        "Id": "org.lifeos.hud",
+        "License": "GPL-3.0+",
+        "Name": "Life OS HUD",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

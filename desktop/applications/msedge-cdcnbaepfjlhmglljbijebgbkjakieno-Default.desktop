@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=NetMirror
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=cdcnbaepfjlhmglljbijebgbkjakieno "--app-url=https://net77.cc/home?h=1"
+Icon=msedge-cdcnbaepfjlhmglljbijebgbkjakieno-Default
+StartupWMClass=crx__cdcnbaepfjlhmglljbijebgbkjakieno

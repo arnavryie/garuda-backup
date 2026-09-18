@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Marvel Rivals
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/2767030
+Icon=steam_icon_2767030
+Terminal=false
+Type=Application
+Categories=Game;

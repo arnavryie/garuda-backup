@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Life OS — J.A.R.V.I.S. Executive Protocol
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=hjihfjnhmgbnenmlepeaieilgcfmamcf --app-url=https://life-os-omega-tan.vercel.app/tasks
+Icon=msedge-hjihfjnhmgbnenmlepeaieilgcfmamcf-Default
+StartupWMClass=crx__hjihfjnhmgbnenmlepeaieilgcfmamcf
