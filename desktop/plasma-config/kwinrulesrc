@@ -3,13 +3,20 @@ count=2
 rules=1,2
 
 [1]
-Description=Keep Picture-in-Picture Always on Top
+Description=Keep Picture-in-Picture Always on Top Over Games
 above=true
 aboverule=2
-title=Picture.*in.*picture|Picture-in-Picture|Picture in picture
+layer=overlay
+layerrule=2
+allvirtualdesktops=true
+allvirtualdesktopsrule=2
+skiptaskbar=true
+skiptaskbarrule=2
+skippager=true
+skippagerrule=2
+title=.*[Pp]icture.*[Ii]n.*[Pp]icture.*
 titlematch=3
-types=1
-wmclass=microsoft-edge|microsoft-edge-stable|msedge|chromium|google-chrome|firefox|brave-browser
+wmclass=microsoft-edge|microsoft-edge-stable|msedge|chromium|google-chrome|firefox|brave-browser|zen-browser
 wmclasscomplete=false
 wmclassmatch=3
 
@@ -30,8 +37,7 @@ below=true
 belowrule=2
 title=LifeOSDesktop
 titlematch=1
-position=980,28
+position=980,46
 positionrule=2
-size=940,1052
+size=940,960
 sizerule=2
-
