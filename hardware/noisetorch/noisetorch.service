@@ -1,0 +1,13 @@
+[Unit]
+Description=NoiseTorch Microphone Noise Suppressor
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire-pulse.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '/home/ryie/.local/bin/noisetorch -i -s alsa_input.usb-3142_Fifine_Microphone-00.mono-fallback -t 95 && sleep 0.5 && pactl set-default-source "NoiseTorch Microphone for Fifine Microphone"'
+ExecStop=/home/ryie/.local/bin/noisetorch -u
+
+[Install]
+WantedBy=default.target
