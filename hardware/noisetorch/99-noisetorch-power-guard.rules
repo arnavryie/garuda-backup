@@ -1,0 +1,6 @@
+# NoiseTorch Dynamic Power & Hardware Guard
+# 1. AC Charger plugged or unplugged
+ACTION=="change", SUBSYSTEM=="power_supply", RUN+="/usr/local/bin/noisetorch-power-guard-trigger.sh"
+
+# 2. Fifine Microphone connected or disconnected
+ACTION=="add|remove", SUBSYSTEM=="usb", ENV{PRODUCT}=="3142/5060/*", RUN+="/usr/local/bin/noisetorch-power-guard-trigger.sh"

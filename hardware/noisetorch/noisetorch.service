@@ -1,13 +1,13 @@
 [Unit]
-Description=NoiseTorch Microphone Noise Suppressor
+Description=NoiseTorch Smart Battery & Hardware Power Guard
 After=pipewire.service pipewire-pulse.service wireplumber.service
 Wants=pipewire-pulse.service
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/bash -c '/home/ryie/.local/bin/noisetorch -i -s alsa_input.usb-3142_Fifine_Microphone-00.mono-fallback -t 95 && sleep 0.5 && pactl set-default-source "NoiseTorch Microphone for Fifine Microphone"'
-ExecStop=/home/ryie/.local/bin/noisetorch -u
+ExecStart=/home/ryie/.local/bin/noisetorch-smart-guard.sh
+ExecStop=/bin/bash -c 'while pactl list short sources 2>/dev/null | grep -q "NoiseTorch Microphone"; do /home/ryie/.local/bin/noisetorch -u >/dev/null 2>&1 || break; done'
 
 [Install]
 WantedBy=default.target

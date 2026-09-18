@@ -47,7 +47,8 @@ install_hardware() {
     check_sudo
     sudo bash "$REPO_DIR/hardware/install-touchpad.sh"
     bash "$REPO_DIR/hardware/setup-apple-ios.sh"
-    echo -e "${GREEN}[✓] Hardware, Touchpad, Power & Apple iOS fixes applied!${NC}"
+    bash "$REPO_DIR/hardware/noisetorch/install-noisetorch-service.sh"
+    echo -e "${GREEN}[✓] Hardware, Touchpad, Power, NoiseTorch Smart Mic & Apple iOS fixes applied!${NC}"
 }
 
 install_gaming() {

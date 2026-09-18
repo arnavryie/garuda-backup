@@ -52,6 +52,11 @@ chmod +x install.sh storage/*.sh hardware/*.sh gaming/*.sh
 * **USB Ethernet (`ipheth`):** Autoloads `ipheth` via `/etc/modules-load.d/ipheth.conf` for instant, zero-latency wired tethering when Personal Hotspot is active.
 * **Dolphin File & Photo Browsing (`ifuse` & `gvfs-afc`):** Installs Apple File Conduit backends so iPhones mount cleanly as removable storage devices in Dolphin.
 
+### 6. 🎙️ Fifine Mic NoiseTorch Smart Battery Guard & Autostart
+* **PipeWire 1.6+ LADSPA Sandbox Fix:** Injects `LADSPA_PATH` into `pipewire-pulse` systemd user service override, fixing `commandLoadModule -> No such entity` errors.
+* **Dynamic Hardware & Power Management (`udev`):** Instant udev kernel hooks monitor AC charger connect/disconnect and Fifine USB hotplug events.
+* **Zero Battery Drain Guarantee:** When operating on battery power OR when the Fifine microphone is disconnected, the service completely unloads NoiseTorch from PipeWire (0% CPU, 0 MB RAM, no background audio filtering loop). When plugged into AC power with the Fifine mic connected, it automatically restores the 95% threshold noise suppressor and sets it as the system's default source.
+
 ---
 
 ## 🛠️ Manual Module Execution
