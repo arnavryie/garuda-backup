@@ -52,4 +52,11 @@ if [ -f "$SCRIPT_DIR/default-wifi-powersave-off.conf" ]; then
     sudo cp "$SCRIPT_DIR/default-wifi-powersave-off.conf" /etc/NetworkManager/conf.d/
 fi
 
+# Apply PipeWire Game Audio Stream Labeling Fix (Unreal Engine / THE FINALS)
+if [ -d "$SCRIPT_DIR/pipewire-pulse.conf.d" ]; then
+    mkdir -p "$HOME/.config/pipewire/pipewire-pulse.conf.d"
+    cp -r "$SCRIPT_DIR/pipewire-pulse.conf.d/"* "$HOME/.config/pipewire/pipewire-pulse.conf.d/"
+fi
+
 echo "==> Wine Gaming, Steam Wayland, 100GB Shader Cache & Low-Latency Network fixes successfully applied!"
+
