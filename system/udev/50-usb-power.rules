@@ -1,0 +1,18 @@
+# Disable autosuspend completely for all input devices, wireless mice, keyboards, Bluetooth, and audio
+# 1. USB HID devices (Mice, Keyboards, Wireless 2.4GHz RF Dongles)
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{bInterfaceClass}=="03", TEST=="power/control", ATTR{power/control}="on"
+
+# 2. Wireless controllers (Bluetooth adapters, Intel AX201, etc.)
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{bDeviceClass}=="e0", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="8087", TEST=="power/control", ATTR{power/control}="on"
+
+# 3. Logitech and common wireless mouse vendors
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="1532", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="258a", TEST=="power/control", ATTR{power/control}="on"
+
+# 4. USB Audio devices (Audiocular DAC, Fifine Mic)
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{bInterfaceClass}=="01", TEST=="power/control", ATTR{power/control}="on"
+
+# 5. USB Hubs
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{bDeviceClass}=="09", TEST=="power/control", ATTR{power/control}="on"
