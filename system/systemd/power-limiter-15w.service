@@ -1,0 +1,11 @@
+[Unit]
+Description=Hard 15W/20W Intel RAPL Power Limiter
+After=multi-user.target suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/power-limiter-15w.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target sleep.target
