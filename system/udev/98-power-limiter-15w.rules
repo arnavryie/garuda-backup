@@ -1,2 +1,0 @@
-# Re-enforce 15W/20W power limit on any AC / battery change event
-SUBSYSTEM=="power_supply", ACTION=="change", RUN+="/usr/local/bin/power-limiter-15w.sh"
